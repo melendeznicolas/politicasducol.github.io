@@ -1,0 +1,126 @@
+/* ============================
+   Ducol Group — index.css
+   Paleta basada en el logo
+   ============================ */
+
+/* Paleta principal */
+:root{
+  --green-900:#1b5e20; /* verde oscuro */
+  --green-700:#2e7d32;
+  --green-500:#4caf50;
+  --red-700:#c62828;
+  --red-600:#e53935;
+  --orange-700:#ef6c00;
+  --orange-500:#fb8c00;
+  --yellow-600:#fbc02d;
+  --brown-700:#8d4e2e;
+
+  /* UI base */
+  --bg:#ffffff;
+  --fg:#0f172a;
+  --muted:#475569;
+  --surface:#f6faf7;
+  --border:#e2e8f0;
+  --primary:var(--green-900);
+  --accent:var(--orange-700);
+  --focus:#0ea5e9; /* foco accesible */
+}
+
+/* Tema oscuro opcional (lo activa index.js) */
+:root[data-theme="dark"]{
+  --bg:#0b1220;
+  --fg:#e5e7eb;
+  --muted:#94a3b8;
+  --surface:#121a2b;
+  --border:#22304a;
+  --primary:#4caf50;
+  --accent:#fb8c00;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font:16px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  background:var(--bg);
+  color:var(--fg);
+  text-rendering:optimizeLegibility;
+}
+
+/* Layout */
+.container{max-width:920px;margin:0 auto;padding:24px}
+header{
+  padding:28px 24px 8px;
+  border-bottom:1px solid var(--border);
+  background:linear-gradient(180deg,
+    color-mix(in srgb,var(--primary) 8%,var(--bg)), var(--bg));
+}
+.brand{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.brand-logo{width:88px;height:auto;filter:drop-shadow(0 4px 12px rgba(0,0,0,.12))}
+h1{margin:.2em 0 .15em;font-size:clamp(24px,3.6vw,38px)}
+.subtitle{color:var(--muted);margin:.2em 0 1em}
+.badge{
+  display:inline-block;background:color-mix(in srgb,var(--primary) 10%,var(--bg));
+  color:var(--primary);border:1px solid color-mix(in srgb,var(--primary) 30%,var(--border));
+  padding:4px 10px;border-radius:999px;font-size:13px;font-weight:600
+}
+
+main{padding:10px 24px 32px}
+h2{margin:1.4em 0 .5em;font-size:clamp(20px,2.6vw,28px)}
+h3{margin:1.1em 0 .35em;font-size:18px}
+p,li{color:var(--fg)}
+.muted{color:var(--muted)}
+a{color:var(--primary);text-underline-offset:2px}
+a:focus-visible,button:focus-visible{outline:3px solid var(--focus);outline-offset:2px;border-radius:6px}
+
+.note,.callout,.warn{padding:12px 14px;border-radius:12px;border:1px solid var(--border);margin:12px 0}
+.note{background:#f8fafc}
+.callout{
+  background:color-mix(in srgb,var(--accent) 10%,var(--bg));
+  border-color:color-mix(in srgb,var(--accent) 30%,var(--border))
+}
+.warn{
+  background:color-mix(in srgb,var(--red-700) 8%,var(--bg));
+  border-color:color-mix(in srgb,var(--red-700) 30%,var(--border))
+}
+
+.kpis{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.card{
+  border:1px solid var(--border);border-radius:16px;padding:16px;background:var(--surface);
+  box-shadow:0 1px 0 color-mix(in srgb,var(--fg) 4%,transparent)
+}
+
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  border:1px solid color-mix(in srgb,var(--primary) 35%,var(--border));
+  color:#fff;background:var(--primary);
+  padding:10px 14px;border-radius:12px;font-weight:600;cursor:pointer
+}
+.btn.secondary{
+  background:color-mix(in srgb,var(--accent) 90%,black);
+  border-color:color-mix(in srgb,var(--accent) 35%,var(--border))
+}
+.btn.ghost{
+  background:transparent;color:var(--primary);
+  border-color:color-mix(in srgb,var(--primary) 35%,var(--border))
+}
+
+.theme-toggle{margin-left:auto;display:flex;gap:8px}
+
+footer{
+  border-top:1px solid var(--border);padding:18px 24px;color:var(--muted);font-size:14px;
+  background:linear-gradient(0deg,color-mix(in srgb,var(--primary) 7%,var(--bg)),var(--bg))
+}
+
+/* Table (si la usas) */
+table{width:100%;border-collapse:collapse;margin:10px 0 18px}
+th,td{padding:10px 12px;border-bottom:1px solid var(--border)}
+th{text-align:left;color:var(--muted);font-weight:600}
+
+/* Chips de color */
+.chip{display:inline-block;padding:4px 10px;border-radius:999px;font-size:12px;font-weight:700}
+.chip.green{background:color-mix(in srgb,var(--green-500) 20%,var(--bg));color:var(--green-900)}
+.chip.orange{background:color-mix(in srgb,var(--orange-500) 20%,var(--bg));color:var(--orange-700)}
+.chip.red{background:color-mix(in srgb,var(--red-600) 20%,var(--bg));color:var(--red-700)}
+
+@media (max-width:520px){.brand-logo{width:72px}}
